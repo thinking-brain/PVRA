@@ -1,0 +1,51 @@
+﻿@model IEnumerable<PVRA.Models.OtrosGastos>
+
+@{
+    ViewBag.Title = "Gastos";
+}
+
+<div class="container">
+    <div class="panel panel-form col-md-12">
+        <h2>Lista de Gastos</h2>
+
+        <p>
+            @Html.ActionLink("Agregar Gasto", "Create", null, new { @class = "btn btn-info" })
+        </p>
+        <table class="table table-bordered table-striped dynamic">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Fecha)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Importe)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ConceptoGasto)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Fecha)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Importe)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ConceptoGasto.Nombre)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" }) |
+                            @Html.ActionLink("Borrar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title -PVRA</title>
+    @Styles.Render("~/Content/css?v=*")
+    @Scripts.Render("~/bundles/modernizr")
+    @*<link href="~/Content/datepicker.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/bootstrap-responsive.min.css" />
+    <link href="~/Content/jquery-ui-1.10.3.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/select.css" />
+    <link rel="stylesheet" href="~/Content/multiselect.css"/>
+    <link rel="stylesheet" href="~/Content/stylesheet.css" />*@
+    <link href="~/Content/datepicker.css" rel="stylesheet" />
+    <link href="~/Content/uniform.default.css" rel="stylesheet" />
+    <link href="~/Content/chosen.min.css" rel="stylesheet" />
+    <link href="~/Content/jquery.datatables.css" rel="stylesheet" />
+    <link href="~/Content/mbs-qdtf.css" rel="stylesheet" />
+    
+    @RenderSection("style", required: false)
+    @RenderSection("devscripts", required: false)
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("PVRA", "Index", "Home", null, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @{
+                        Html.RenderAction("Menu","Account");
+                    }
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()<hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Punto de Venta de Ropa Artesanal</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+    @*<script src="~/Scripts/jquery-ui-1.10.3.min.js"></script>
+    <script src="~/Scripts/bootstrap-datepicker.js"></script>*@
+    <script src="~/Scripts/jquery.uniform.min.js"></script>
+    <script src="~/Scripts/chosen.jquery.min.js"></script>
+    <script src="~/Scripts/bootstrap-datepicker.js"></script>
+    <script src="~/Scripts/jquery.dataTables.js"></script>
+    
+    <script src="~/Scripts/mbs-qdtf.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

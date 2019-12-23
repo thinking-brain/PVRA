@@ -1,0 +1,40 @@
+﻿@model PVRA.Models.BaseTemporal.CostoProduccion
+
+@using (Html.BeginForm("PartialCostoEdit", "ProductoConfeccionado", new { ProductoConfeccionadoId = @ViewBag.ProductoConfeccionadoId }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            <div class="col-md-3">
+                @Html.DropDownList("ConceptoCostoId")
+                @Html.ValidationMessageFor(model => model.ConceptoCostoId)
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="col-md-3">
+                @Html.DropDownList("TrabajadorPersonaId")
+                @Html.ValidationMessageFor(model => model.TrabajadorPersonaId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Importe, new { @class = "form-control", @placeholder = "Importe" })
+                @Html.ValidationMessageFor(model => model.Importe)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-3">
+                <input type="submit" value="Crear" class="btn btn-success" />
+            </div>
+            <div class="col-md-offset-1 col-md-3">
+                @Html.ActionLink("Cancelar", "CancelarEditarCostos", "ProductoConfeccionado", new { ProductoConfeccionadoId = @ViewBag.ProductoConfeccionadoId }, new { @class = "btn btn-default" })
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<PVRA.Models.SalidaMateriales>
+
+@{
+    ViewBag.Title = "Salida de Materias Primas";
+}
+
+<div class="container">
+    <div class="panel panel-form col-md-9">
+        <h2>Lista de Salidas de Materias Primas</h2>
+
+        <p>
+            @Html.ActionLink("Agregar Salida", "Create", null, new { @class = "btn btn-info" })
+        </p>
+        <table class="table table-bordered table-striped dynamic">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Fecha)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.InvertarioMateriales)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cantidad)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Observacion)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Fecha)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.InvertarioMateriales.InventarioCorto)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cantidad)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Observacion)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" }) |
+                            @Html.ActionLink("Borrar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

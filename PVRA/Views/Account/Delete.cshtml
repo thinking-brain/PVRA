@@ -1,0 +1,47 @@
+﻿@model PVRA.Models.RegisterViewModel
+
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+
+<div class="container">
+    <div class="panel panel-form col-md-7">
+        <h2>Eliminar</h2>
+
+        <h3>Desea desactivar el usuario? (Puede volver a activar el usuario)</h3>
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.UserName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UserName)
+                </dd>
+
+            </dl>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Roles)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Roles)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(model => model.UserName)
+                <div class="form-actions no-color">
+                    <input type="submit" value="Desactivar" class="btn btn-default" /> |
+                    @Html.ActionLink("Atras", "UsersList")
+                </div>
+            }
+        </div>
+    </div>
+</div>

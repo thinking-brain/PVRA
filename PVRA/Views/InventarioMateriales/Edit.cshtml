@@ -1,0 +1,73 @@
+﻿@model PVRA.Models.InvertarioMateriales
+
+@{
+    ViewBag.Title = "Editar";
+}
+
+<div class="container">
+    <div class="panel panel-form col-md-6">
+        <h2>Editar</h2>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true)
+                @Html.HiddenFor(model => model.Id)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.MateriaPrimaId, "Material", new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("MateriaPrimaId")
+                        @Html.ValidationMessageFor(model => model.MateriaPrimaId)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ColorId, "Color", new { @class = "control-label col-md-3" })
+                    <div class="col-md-7">
+                        @Html.DropDownList("ColorId", null, new { @class = "chzn-select col-md-9" })
+                        @Html.ValidationMessageFor(model => model.ColorId)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Precio, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.Precio, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Precio)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Existencia, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.Existencia, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Existencia)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Descripcion, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.Descripcion, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Descripcion)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Guardar" class="btn btn-success" />
+                        @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-default" })
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,47 @@
+﻿@model PVRA.Models.EditRoleViewModel
+
+@{
+    ViewBag.Title = "Editar Roles";
+}
+
+<div class="container">
+    <div class="panel panel-form col-md-5">
+        <h2>Editar Usuario</h2>
+
+        @using (Html.BeginForm("EditRoles", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+            @Html.HiddenFor(m => m.Id)
+            <div class="form-group">
+                @Html.LabelFor(m => m.Roles, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.DropDownList("Roles", null, new { @class = "select col-md-3", @multiple = true })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Active, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.CheckBoxFor(m => m.Active)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" class="btn btn-success" value="Guardar" />
+                    @Html.ActionLink("Atras","UsersList","Account",null, new{ @class = "btn btn-default"}   )
+                </div>
+            </div>
+        }
+    </div>
+</div>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $(".select").chosen();
+        });
+    </script>
+
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

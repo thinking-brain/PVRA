@@ -1,0 +1,22 @@
+﻿<li>@Html.ActionLink("Usuarios", "UsersList", "Account")</li>
+<li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Inventarios <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+        <li>@Html.ActionLink("Invetario de Materias Primas", "Index", "InventarioMateriales")</li>
+        <li>@Html.ActionLink("Invetario de Productos", "Index", "InventarioProducto")</li>
+    </ul>
+</li>
+<li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Clasificadores <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+        <li>@Html.ActionLink("Unidad de Medida", "Index", "UnidadMedida")</li>
+        <li>@Html.ActionLink("Conceptos de Gastos", "Index", "ConceptoGasto")</li>
+        <li>@Html.ActionLink("Concepto de Pagos", "Index", "ConceptoCosto")</li>
+        <li>@Html.ActionLink("Área de trabajo", "Index", "AreaTrabajo")</li>
+        <li>@Html.ActionLink("Ocupaciones", "Index", "Ocupacion")</li>
+    </ul>
+</li>
+
+<li>
+    <a href="~/Content/docs/ayuda.pdf">Ayuda</a>
+</li>

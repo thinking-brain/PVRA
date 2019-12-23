@@ -1,0 +1,36 @@
+﻿@model PVRA.Models.Producto_Material
+
+@{
+    ViewBag.Title = "Materiales de productos";
+}
+
+<div class="container">
+    <div class="panel panel-form col-md-12">
+        <h2>Productos</h2>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProductoId, "Productos", new { @class = "control-label col-md-3" })
+            <div class="col-md-7">
+                @Html.DropDownList("ProductoId", null, new { @class = "col-md-12" })
+                @Html.ValidationMessageFor(model => model.ProductoId)
+            </div>
+        </div>
+        <div id="Tabla" class="form-group">
+
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).ready(function () {
+            $('.chzn-select').chosen();
+            $('#Tabla').load('/ProductoMaterial/PartialMateriales/' + $('#ProductoId option:selected').attr('value'));
+            
+            $('#ProductoId option').click(function () {
+                $('#Tabla').load('/ProductoMaterial/PartialMateriales/' + $(this).attr('value'));
+            });
+
+        });
+    </script>
+}

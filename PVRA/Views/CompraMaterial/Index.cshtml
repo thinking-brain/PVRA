@@ -1,0 +1,77 @@
+﻿@model IEnumerable<PVRA.Models.CompraMateriales>
+
+@{
+    ViewBag.Title = "Compras";
+}
+
+<div class="container">
+    <div class="panel panel-form col-md-11">
+        <h2>Lista de Compras de Materias Primas</h2>
+
+        <p>
+            @Html.ActionLink("Agregar Compra", "Create", null, new { @class = "btn btn-info" })
+        </p>
+        <table class="table table-bordered table-striped dynamic">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Fecha)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Material)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Color)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Importe)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cantidad)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Observacion)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Persona_Proveedor)
+                    </th>
+
+                    <th></th>
+                </tr></thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Fecha)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Material.DescripcionCompleta)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Color.DescricionCompleta)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Importe)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cantidad)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Observacion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Persona_Proveedor.NombreApellidos)
+                        </td>
+
+                        <td>
+                            @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" }) |
+                            @Html.ActionLink("Borrar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

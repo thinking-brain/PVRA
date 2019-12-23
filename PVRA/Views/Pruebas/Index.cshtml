@@ -1,0 +1,56 @@
+﻿@model IEnumerable<PVRA.Models.ProductoConfeccionadoInventarioMaterial>
+
+@{
+    int index = 0;
+    index = ViewBag.ProductoConfeccionadoId;
+}
+
+<a id="nuevoMaterial" class="btn btn-default">+</a>
+@Html.Hidden("ProductoConfeccionadoId", index)
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.InvertarioMateriales)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.InvertarioMateriales.Inventario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cantidad)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Index", new {/*id = item.Id */}, new { @class = "btn btn-primary" }) |
+                @Html.ActionLink("Borrar", "Index", new {/* id = item.Id */}, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="form-group">
+    <div id="matForm"></div>
+</div>
+
+@Html.ActionLink("Siguiente", "Index", new { productoConfeccionadoId = index }, new { @class = "btn btn-primary" }) |
+
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).ready(function () {
+            $('#nuevoMaterial').click(function () {
+                $('#matForm').load('/ProductoConfeccionado/PartialMaterial?ProductoConfeccionadoId=' + $('#ProductoConfeccionadoId').attr('value'));
+            });
+        });
+    </script>
+}

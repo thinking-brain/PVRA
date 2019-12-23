@@ -1,0 +1,63 @@
+﻿@model IEnumerable<PVRA.Models.InvertarioMateriales>
+
+@{
+    ViewBag.Title = "Inventario de Materiales";
+}
+
+<div class="container">
+    <div class="panel panel-form col-md-9">
+        <h2>Inventario de Materias Primas</h2>
+
+        <p>
+            @Html.ActionLink("Agregar Inventario", "Create", null, new { @class = "btn btn-info" })
+        </p>
+        <table class="table table-bordered table-striped dynamic">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Material)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Color)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Precio)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Existencia)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Descripcion)
+                    </th><th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Material.DescripcionCompleta)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Color.DescricionCompleta)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Precio)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Existencia)
+                            @Html.DisplayFor(modelItem => item.Material.UnidadMedida.Siglas)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Descripcion)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" }) |
+                            @Html.ActionLink("Borrar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<PVRA.Models.Salario>
+
+@{
+    ViewBag.Title = "Salarios";
+}
+
+<div class="container">
+    <div class="panel panel-form col-md-9">
+        <h2>Lista de Salarios Pagados</h2>
+
+        <p>
+            @Html.ActionLink("Agregar nuevo Salario", "Create", null, new { @class = "btn btn-info" })
+        </p>
+        <table class="table table-bordered table-striped dynamic">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Fecha)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Persona_Trabajador)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Importe)
+                    </th>
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Fecha)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Persona_Trabajador.NombreApellidos)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Importe)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" }) |
+                            @Html.ActionLink("Borrar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

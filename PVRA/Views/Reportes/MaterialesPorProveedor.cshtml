@@ -1,0 +1,53 @@
+﻿@model IEnumerable<PVRA.ModelViews.MaterialProveedorModel>
+
+@{
+    ViewBag.Title = "title";
+}
+
+<h2>title</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Proveedor)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Proveedor)
+                <table class="table">
+                    <tr>
+                        <th>
+                            <label>Materiales</label>
+                        </th>
+                        <th>
+                            <label>Cantidad</label>
+                        </th>
+                        <th>
+                            <label>Importe</label>
+                        </th>
+                    </tr>
+
+                    @foreach (var i in item.Materiales)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => i.Material)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => i.Cantidad)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => i.Importe)
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </td>
+        </tr>
+    }
+
+</table>

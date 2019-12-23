@@ -1,0 +1,79 @@
+﻿@using PVRA.Controllers
+@model IEnumerable<PVRA.Models.BaseTemporal.MaterialesUtilizados>
+
+@{
+    
+    int index = 0;
+    index = ViewBag.ProductoConfeccionadoId;
+}
+
+<div class="container">
+    <div class="panel panel-form col-md-6">
+        
+        <div class="form-group">
+            <a id="nuevoMaterial" class="btn btn-info">Agregar</a>
+        </div>
+        @Html.Hidden("ProductoConfeccionadoId", index)
+
+        <table id="tabla" class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.InvertarioMateriales)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cantidad)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model){
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.InvertarioMateriales.InventarioCorto)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cantidad)
+                        </td>
+                        <td>
+                            <a id="@item.InvertarioMaterialesId" class="btn btn-primary edit">Editar</a>
+                            @Html.ActionLink("Borrar", "DeleteMaterialEdit", new { productoConfeccionadoId = ViewBag.ProductoConfeccionadoId, materialId = item.InvertarioMaterialesId }, new { @class = "btn btn-danger" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        @Html.ActionLink("Siguiente", "EditarMateriales", new { productoConfeccionadoId = index }, new { @class = "btn btn-primary" })
+    </div>
+    <div id="formPanel" class="panel panel-form col-md-4">
+        <div class="form-group">
+            <div id="matForm"></div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).ready(function () {
+            $('#formPanel').fadeOut("fast");
+
+            $('.edit').click(function () {
+                
+                $('#matForm').load('/ProductoConfeccionado/EditMaterialesEdit?ProductoConfeccionadoId=' + $('#ProductoConfeccionadoId').attr('value') + '&InventarioMaterialId=' + $(this).attr('id'));
+                $('#formPanel').fadeIn("slow");
+            });
+
+            $('#nuevoMaterial').click(function () {
+                $('#matForm').load('/ProductoConfeccionado/PartialMaterialEdit?ProductoConfeccionadoId=' + $('#ProductoConfeccionadoId').attr('value'));
+                $('#formPanel').fadeIn("slow");
+            });
+        });
+        $('#cancelar').click(function () {
+            $('#formPanel').fadeOut("slow");
+        });
+    </script>
+}

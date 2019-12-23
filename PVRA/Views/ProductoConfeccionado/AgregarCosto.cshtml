@@ -1,0 +1,78 @@
+﻿@model IEnumerable<PVRA.Models.BaseTemporal.CostoProduccion>
+
+@{
+    int index = 0;
+    index = ViewBag.ProductoConfeccionadoId;
+}
+
+<div class="container">
+    <div class="panel panel-form col-md-6">
+        <a id="nuevoCosto" class="btn btn-info">Agregar</a>
+        @Html.Hidden("ProductoConfeccionadoId", index)
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ConceptoCosto)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Trabajador)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Importe)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ConceptoCosto.Nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Trabajador.NombreApellidos)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Importe)
+                        </td>
+                        <td>
+                            <a id="@item.Id" class="btn btn-primary edit">Editar</a>
+                            @Html.ActionLink("Borrar", "DeleteCosto", new { productoConfeccionadoId = ViewBag.ProductoConfeccionadoId, id = item.Id }, new { @class = "btn btn-danger" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        @Html.ActionLink("Guardar", "GuardarProducto", new { ProductoConfeccionadoId = ViewBag.ProductoConfeccionadoId }, new { @class = "btn btn-primary" })
+    </div>
+    <div id="formPanel" class="panel panel-form col-md-4">
+        <div class="form-group">
+            <div id="matForm"></div>
+        </div>
+    </div>
+</div>
+
+
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).ready(function () {
+            $('#formPanel').hide();
+
+            $('.edit').click(function () {
+                $('#formPanel').show();
+                $('#matForm').load('/ProductoConfeccionado/EditCosto?ProductoConfeccionadoId=' + $('#ProductoConfeccionadoId').attr('value') + '&CostoId=' + $(this).attr('id'));
+            });
+
+            $('#nuevoCosto').click(function () {
+                $('#formPanel').show();
+                $('#matForm').load('/ProductoConfeccionado/PartialCosto?ProductoConfeccionadoId=' + $('#ProductoConfeccionadoId').attr('value'));
+            });
+        });
+    </script>
+}

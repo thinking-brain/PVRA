@@ -1,0 +1,85 @@
+﻿@model PVRA.Models.Persona_Trabajador
+
+@{
+    ViewBag.Title = "Agregar";
+}
+
+<div class="container">
+    <div class="panel panel-form col-md-9">
+        <h2>Agregar Trabajador</h2>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Nombres, new { @class = "control-label col-md-3" })
+                    <div class="col-md-7">
+                        @Html.TextBoxFor(model => model.Nombres, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Nombres)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Apellidos, new { @class = "control-label col-md-3" })
+                    <div class="col-md-7">
+                        @Html.TextBoxFor(model => model.Apellidos, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Apellidos)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Direccion, new { @class = "control-label col-md-3" })
+                    <div class="col-md-7">
+                        @Html.TextBoxFor(model => model.Direccion, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Direccion)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Telefono, new { @class = "control-label col-md-3" })
+                    <div class="col-md-7">
+                        @Html.TextBoxFor(model => model.Telefono, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Telefono)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.AreaTrabajoId, "Área de Trabajo", new { @class = "control-label col-md-3" })
+                    <div class="col-md-7">
+                        @Html.DropDownList("AreaTrabajoId", null, new { @class = "chzn-select col-md-9" })
+                        @Html.ValidationMessageFor(model => model.AreaTrabajoId)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.OcupacionId, "Ocupación", new { @class = "control-label col-md-3" })
+                    <div class="col-md-7">
+                        @Html.DropDownList("OcupacionId", null, new { @class = "chzn-select col-md-9" })
+                        @Html.ValidationMessageFor(model => model.OcupacionId)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-7">
+                        <input type="submit" value="Crear" class="btn btn-success" />
+                        @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-default" })
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script>
+    $(document).ready(function () {
+        $('.chzn-select').chosen();
+    });
+</script>
+
+}

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<PVRA.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "Usuarios";
+}
+
+
+<div class="container">
+    <div class="panel panel-form col-md-9">
+        <h2>Usuarios</h2>
+
+        @Html.ActionLink("Agregar Usuario", "Register", "Account", null, new { @class = "btn btn-info" })
+        <div class="block">
+
+            <div class="data-fluid">
+                <table class="table dynamic">
+                    <thead>
+                        <tr>
+                            <th>Usuario</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.UserName)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Restablecer Contraseña", "RestartPassword", "Account", new { item.Id }, new { @class = "btn btn-primary" })
+                                    @Html.ActionLink("Editar", "EditRoles", "Account", new { item.Id }, new { @class = "btn btn-success" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>
+}
+
+

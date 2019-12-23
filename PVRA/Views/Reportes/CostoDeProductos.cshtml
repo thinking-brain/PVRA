@@ -1,0 +1,36 @@
+﻿@model IEnumerable<PVRA.ModelViews.CostoProductoModel>
+
+@{
+    ViewBag.Title = "title";
+}
+
+<h2>title</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Producto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Costo)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Producto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cantidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Costo)
+            </td>
+        </tr>
+    }
+
+</table>

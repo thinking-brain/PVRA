@@ -1,0 +1,56 @@
+﻿@model PVRA.Models.Producto_Material
+
+@{
+    ViewBag.Title = "Agregar";
+    var index = 0;
+    index = ViewBag.Id;
+}
+
+<div class="container">
+    <div class="panel panel-form col-md-5">
+        <h2>Agregar Materia Prima</h2>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true)
+                @Html.HiddenFor(model => model.ProductoId, new { @value = index })
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.MateriaPrimaId, "Material", new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("MateriaPrimaId", null, new { @class = "chzn-select col-md-9" })
+                        @Html.ValidationMessageFor(model => model.MateriaPrimaId)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Cantidad, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.Cantidad, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Cantidad)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Crear" class="btn btn-success" />
+                        @Html.ActionLink("Atras", "Index", new { Id = index }, new { @class = "btn btn-default" })
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script>
+    $(document).ready(function () {
+        $('.chzn-select').chosen();
+    });
+</script>
+}

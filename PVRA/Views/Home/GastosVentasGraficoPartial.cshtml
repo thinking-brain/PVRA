@@ -1,0 +1,33 @@
+﻿@using System.Drawing
+@{
+    var settings = new ChartControlSettings();
+
+    settings.SeriesTemplate.ChangeView(DevExpress.XtraCharts.ViewType.Line); 
+    settings.Name = "chart";
+    settings.BorderOptions.Visibility = DefaultBoolean.True;
+    settings.Height = 400;
+    settings.Width = 700;
+    settings.CrosshairEnabled = DefaultBoolean.True;
+
+
+    settings.Titles.Add(new ChartTitle()
+    {
+        Font = new Font("Tahoma", 18),
+        Text = "Ventas y Gastos en el año"
+    });
+
+    settings.SeriesTemplate.ArgumentDataMember = "Mes";
+    settings.SeriesTemplate.ValueDataMembers[0] = "Valor";
+    settings.SeriesTemplate.LabelsVisibility = DefaultBoolean.True;
+    settings.SeriesTemplate.Label.ResolveOverlappingMode = ResolveOverlappingMode.Default;
+    settings.SeriesDataMember = "Serie";
+    settings.Legend.AlignmentHorizontal = LegendAlignmentHorizontal.Right;
+
+    XYDiagram diagram = (XYDiagram)settings.Diagram;
+    diagram.AxisY.Interlaced = true;
+    diagram.AxisY.Title.Text = "Efectivo";
+    diagram.AxisY.Title.Visible = true;
+
+}
+
+@Html.DevExpress().Chart(settings).Bind(Model).GetHtml()

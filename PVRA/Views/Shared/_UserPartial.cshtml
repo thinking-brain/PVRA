@@ -1,0 +1,48 @@
+﻿<li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Operaciones<b class="caret"></b></a>
+    <ul class="dropdown-menu">
+        <li>@Html.ActionLink("Compra Materias Primas", "Index", "CompraMaterial")</li>
+        <li>@Html.ActionLink("Salida Materias Primas", "Index", "SalidaMaterial")</li>
+        <li>@Html.ActionLink("Confeccionar Productos", "Index", "ProductoConfeccionado")</li>
+        <li>@Html.ActionLink("Compra de Productos", "Index", "EntradaProducto")</li>
+        <li>@Html.ActionLink("Venta", "Index", "Venta")</li>
+        <li>@Html.ActionLink("Otros gastos", "Index", "OtrosGastos")</li>
+        <li>@Html.ActionLink("Pago de Salario", "Index", "Salario")</li>
+    </ul>
+</li>
+<li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Productos/Materias Primas <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+        <li>@Html.ActionLink("Materias Primas", "Index", "Material")</li>
+        <li>@Html.ActionLink("Productos", "Index", "Producto")</li>
+        <li>@Html.ActionLink("Colores", "Index", "Color")</li>
+        <li>@Html.ActionLink("Materias Primas usadas en productos", "Index", "ProductoMaterial")</li>
+        <li>@Html.ActionLink("Inventario Productos", "Lista", "InventarioProducto")</li>
+        <li>@Html.ActionLink("Inventario Materias Primas", "Lista", "InventarioMateriales")</li>
+    </ul>
+</li>
+
+<li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Personal <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+        <li>@Html.ActionLink("Trabajadores", "Index", "Trabajador")</li>
+        <li>@Html.ActionLink("Proveedores", "Index", "Proveedor")</li>
+    </ul>
+</li>
+
+<li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+        <li>@Html.ActionLink("Ganancia por Años", "GananciaMensual", "Reportes")</li>
+        <li>@Html.ActionLink("Costo de productos en período", "CostoDeProductos", "Reportes")</li>
+        <li>@Html.ActionLink("Materiales en período agrupados por Proveedor", "MaterialesPorProveedor", "Reportes")</li>
+        <li>@Html.ActionLink("Materiales usados en período", "MaterialesUtilizados", "Reportes")</li>
+        <li>@Html.ActionLink("Productos vendidos en período", "ProductosVendidos", "Reportes")</li>
+        <li>@Html.ActionLink("Salario pagados en período", "SalariosPagados", "Reportes")</li>
+        <li>@Html.ActionLink("Ventas en período agrupados por trabajadores", "TrabajadoresVentas", "Reportes")</li>
+    </ul>
+</li>
+
+<li >
+    <a href="~/Content/docs/ayuda.pdf">Ayuda</a>
+</li>

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<PVRA.Models.Persona_Trabajador>
+
+@{
+    ViewBag.Title = "Trabajadores";
+}
+
+<div class="container">
+    <div class="panel panel-form col-md-12">
+        <h2>Listado de trabajadores</h2>
+
+        <p>
+            @Html.ActionLink("Agregar Trabajador", "Create", null, new { @class = "btn btn-info" })
+        </p>
+        <table class="table table-bordered table-striped dynamic">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NombreApellidos)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Direccion)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Telefono)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AreaTrabajo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Ocupacion)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NombreApellidos)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Direccion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Telefono)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AreaTrabajo.Nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Ocupacion.Nombre)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" }) |
+                            @Html.ActionLink("Borrar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
