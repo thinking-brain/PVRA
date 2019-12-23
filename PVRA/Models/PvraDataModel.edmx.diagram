@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cb027a6de74342caa5b20d30839757ce" Name="Diagram1">
+        <EntityTypeShape EntityType="PvraDataModel.AreaTrabajo" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PvraDataModel.Color" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="PvraDataModel.CompraMateriales" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PvraDataModel.ConceptoCosto" Width="1.5" PointX="5.25" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PvraDataModel.ConceptoGasto" Width="1.5" PointX="7.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PvraDataModel.EntradaProductos" Width="1.5" PointX="5.25" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="PvraDataModel.InvertarioMateriales" Width="1.5" PointX="8.25" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PvraDataModel.InvertarioProductos" Width="1.5" PointX="6" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PvraDataModel.Material" Width="1.5" PointX="3" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="PvraDataModel.Ocupacion" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PvraDataModel.OtrosGastos" Width="1.5" PointX="10" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PvraDataModel.Persona" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PvraDataModel.Persona_Proveedor" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PvraDataModel.Persona_Trabajador" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="PvraDataModel.Producto" Width="1.5" PointX="3" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PvraDataModel.Producto_Material" Width="1.5" PointX="8.25" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PvraDataModel.ProductoConfeccionadoInventarioMaterial" Width="1.5" PointX="10.5" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PvraDataModel.Salario" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PvraDataModel.Salario_CostoProduccion" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PvraDataModel.SalidaMateriales" Width="1.5" PointX="10.5" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PvraDataModel.UnidadMedida" Width="1.5" PointX="0.75" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PvraDataModel.Ventas" Width="1.5" PointX="8.25" PointY="4.875" IsExpanded="true" />
+        <AssociationConnector Association="PvraDataModel.FK_FKTrabajador28344" ManuallyRouted="false" />
+        <AssociationConnector Association="PvraDataModel.FK_ColorCompraMateriales" ManuallyRouted="false" />
+        <AssociationConnector Association="PvraDataModel.FK_ColorEntradaProductos" ManuallyRouted="false" />
+        <AssociationConnector Association="PvraDataModel.FK_ColorInvertarioMateriales" ManuallyRouted="false" />
+        <AssociationConnector Association="PvraDataModel.FK_ColorInvertarioProductos" ManuallyRouted="false" />
+        <AssociationConnector Association="PvraDataModel.FK_FKCompraMate814930" ManuallyRouted="false" />
+        <AssociationConnector Association="PvraDataModel.FK_MaterialCompraMateriales" ManuallyRouted="false" />
+        <AssociationConnector Association="PvraDataModel.FK_ConceptoCostoCostoProduccion" ManuallyRouted="false" />
+        <AssociationConnector Association="PvraDataModel.FK_FKOtrosGasto791932" ManuallyRouted="false" />
+        <AssociationConnector Association="PvraDataModel.FK_EntradaProductosCostoProduccion" ManuallyRouted="false" />
+        <AssociationConnector Association="PvraDataModel.FK_MateriasPrimasUsadasEntradaProductos" ManuallyRouted="false" />
+        <AssociationConnector Association="PvraDataModel.FK_ProductoEntradaProductos" ManuallyRouted="false" />
+        <AssociationConnector Association="PvraDataModel.FK_FKInvertario965581" ManuallyRouted="false" />
+        <AssociationConnector Association="PvraDataModel.FK_FKSalidaMate497011" ManuallyRouted="false" />
+        <AssociationConnector Association="PvraDataModel.FK_InvertarioMaterialesProductoConfeccionadoInventarioMaterial" ManuallyRouted="false" />
+        <AssociationConnector Association="PvraDataModel.FK_FKInvertario944054" ManuallyRouted="false" />
+        <AssociationConnector Association="PvraDataModel.FK_FKVentas49889" ManuallyRouted="false" />
+        <AssociationConnector Association="PvraDataModel.FK_FKMaterial596249" ManuallyRouted="false" />
+        <AssociationConnector Association="PvraDataModel.FK_FKProducto_M10400" ManuallyRouted="false" />
+        <AssociationConnector Association="PvraDataModel.FK_OcupacionTrabajador" ManuallyRouted="false" />
+        <AssociationConnector Association="PvraDataModel.FK_FKSalario6470" ManuallyRouted="false" />
+        <AssociationConnector Association="PvraDataModel.FK_FKVentas365277" ManuallyRouted="false" />
+        <AssociationConnector Association="PvraDataModel.FK_FKProducto_M71108" ManuallyRouted="false" />
+        <InheritanceConnector EntityType="PvraDataModel.Persona_Trabajador" />
+        <InheritanceConnector EntityType="PvraDataModel.Persona_Proveedor" />
+        <InheritanceConnector EntityType="PvraDataModel.Salario_CostoProduccion" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

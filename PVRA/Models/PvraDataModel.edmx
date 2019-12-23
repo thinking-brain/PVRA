@@ -1,0 +1,1552 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PvraDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AreaTrabajo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Color">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CompraMateriales">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="MateriaPrimaId" Type="int" Nullable="false" />
+          <Property Name="ColorId" Type="int" Nullable="false" />
+          <Property Name="Importe" Type="decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="Cantidad" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Observacion" Type="varchar" MaxLength="255" />
+          <Property Name="UsuarioId" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ProveedorPersonaId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ConceptoCosto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ConceptoGasto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="EntradaProductos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="ProductoId" Type="int" Nullable="false" />
+          <Property Name="ColorId" Type="int" Nullable="false" />
+          <Property Name="Importe" Type="decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="Cantidad" Type="int" Nullable="false" />
+          <Property Name="Observacion" Type="varchar" MaxLength="255" />
+          <Property Name="UsuarioId" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Confeccionado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InvertarioMateriales">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MateriaPrimaId" Type="int" Nullable="false" />
+          <Property Name="Precio" Type="decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="Existencia" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="255" />
+          <Property Name="ColorId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InvertarioProductos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductoId" Type="int" Nullable="false" />
+          <Property Name="ColorId" Type="int" Nullable="false" />
+          <Property Name="CostoUnitario" Type="decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="Existencia" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="255" />
+          <Property Name="UnidadMedidaId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ocupacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="OtrosGastos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="Importe" Type="decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="UsuarioId" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ConceptoGastoId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Persona">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombres" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Direccion" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Telefono" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Persona_Proveedor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Email" Type="varchar" MaxLength="255" />
+          <Property Name="Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Persona_Trabajador">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="AreaTrabajoId" Type="int" Nullable="false" />
+          <Property Name="OcupacionId" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Modelo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Talla" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Producto_Material">
+          <Key>
+            <PropertyRef Name="ProductoId" />
+            <PropertyRef Name="MateriaPrimaId" />
+          </Key>
+          <Property Name="ProductoId" Type="int" Nullable="false" />
+          <Property Name="MateriaPrimaId" Type="int" Nullable="false" />
+          <Property Name="Cantidad" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductoConfeccionadoInventarioMaterial">
+          <Key>
+            <PropertyRef Name="InvertarioMateriasPrimasId" />
+            <PropertyRef Name="EntradaProductosId" />
+          </Key>
+          <Property Name="InvertarioMateriasPrimasId" Type="int" Nullable="false" />
+          <Property Name="EntradaProductosId" Type="int" Nullable="false" />
+          <Property Name="Cantidad" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Salario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="Importe" Type="decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="TrabajadorPersonaId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Salario_CostoProduccion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="ConceptoCostoId" Type="int" Nullable="false" />
+          <Property Name="EntradaProductosId" Type="int" />
+          <Property Name="Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SalidaMateriales">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="Cantidad" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Observacion" Type="varchar" MaxLength="255" />
+          <Property Name="UsuarioId" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="InvertarioMateriasPrimasId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UnidadMedida">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Unidad" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Siglas" Type="varchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ventas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="Importe" Type="decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="Cantidad" Type="int" Nullable="false" />
+          <Property Name="Observacion" Type="varchar" MaxLength="255" />
+          <Property Name="UsuarioId" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="InvertarioProductosId" Type="int" Nullable="false" />
+          <Property Name="TrabajadorPersonaId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ColorCompraMateriales">
+          <End Role="Color" Type="Self.Color" Multiplicity="1" />
+          <End Role="CompraMateriales" Type="Self.CompraMateriales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CompraMateriales">
+              <PropertyRef Name="ColorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ColorEntradaProductos">
+          <End Role="Color" Type="Self.Color" Multiplicity="1" />
+          <End Role="EntradaProductos" Type="Self.EntradaProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EntradaProductos">
+              <PropertyRef Name="ColorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ColorInvertarioMateriales">
+          <End Role="Color" Type="Self.Color" Multiplicity="1" />
+          <End Role="InvertarioMateriales" Type="Self.InvertarioMateriales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InvertarioMateriales">
+              <PropertyRef Name="ColorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ColorInvertarioProductos">
+          <End Role="Color" Type="Self.Color" Multiplicity="1" />
+          <End Role="InvertarioProductos" Type="Self.InvertarioProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InvertarioProductos">
+              <PropertyRef Name="ColorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConceptoCostoCostoProduccion">
+          <End Role="ConceptoCosto" Type="Self.ConceptoCosto" Multiplicity="1" />
+          <End Role="Salario_CostoProduccion" Type="Self.Salario_CostoProduccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConceptoCosto">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Salario_CostoProduccion">
+              <PropertyRef Name="ConceptoCostoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CostoProduccion_inherits_Salario">
+          <End Role="Salario" Type="Self.Salario" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Salario_CostoProduccion" Type="Self.Salario_CostoProduccion" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Salario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Salario_CostoProduccion">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EntradaProductosCostoProduccion">
+          <End Role="EntradaProductos" Type="Self.EntradaProductos" Multiplicity="0..1" />
+          <End Role="Salario_CostoProduccion" Type="Self.Salario_CostoProduccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EntradaProductos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Salario_CostoProduccion">
+              <PropertyRef Name="EntradaProductosId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FKCompraMate814930">
+          <End Role="Persona_Proveedor" Type="Self.Persona_Proveedor" Multiplicity="1" />
+          <End Role="CompraMateriales" Type="Self.CompraMateriales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persona_Proveedor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CompraMateriales">
+              <PropertyRef Name="ProveedorPersonaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FKInvertario944054">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+          <End Role="InvertarioProductos" Type="Self.InvertarioProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InvertarioProductos">
+              <PropertyRef Name="ProductoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FKInvertario965581">
+          <End Role="Material" Type="Self.Material" Multiplicity="1" />
+          <End Role="InvertarioMateriales" Type="Self.InvertarioMateriales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InvertarioMateriales">
+              <PropertyRef Name="MateriaPrimaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FKMaterial596249">
+          <End Role="UnidadMedida" Type="Self.UnidadMedida" Multiplicity="1" />
+          <End Role="Material" Type="Self.Material" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UnidadMedida">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Material">
+              <PropertyRef Name="UnidadMedidaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FKOtrosGasto791932">
+          <End Role="ConceptoGasto" Type="Self.ConceptoGasto" Multiplicity="1" />
+          <End Role="OtrosGastos" Type="Self.OtrosGastos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConceptoGasto">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OtrosGastos">
+              <PropertyRef Name="ConceptoGastoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FKProducto_M10400">
+          <End Role="Material" Type="Self.Material" Multiplicity="1" />
+          <End Role="Producto_Material" Type="Self.Producto_Material" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Producto_Material">
+              <PropertyRef Name="MateriaPrimaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FKProducto_M71108">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+          <End Role="Producto_Material" Type="Self.Producto_Material" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Producto_Material">
+              <PropertyRef Name="ProductoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FKSalario6470">
+          <End Role="Persona_Trabajador" Type="Self.Persona_Trabajador" Multiplicity="1" />
+          <End Role="Salario" Type="Self.Salario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persona_Trabajador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Salario">
+              <PropertyRef Name="TrabajadorPersonaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FKSalidaMate497011">
+          <End Role="InvertarioMateriales" Type="Self.InvertarioMateriales" Multiplicity="1" />
+          <End Role="SalidaMateriales" Type="Self.SalidaMateriales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvertarioMateriales">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SalidaMateriales">
+              <PropertyRef Name="InvertarioMateriasPrimasId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FKTrabajador28344">
+          <End Role="AreaTrabajo" Type="Self.AreaTrabajo" Multiplicity="1" />
+          <End Role="Persona_Trabajador" Type="Self.Persona_Trabajador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AreaTrabajo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Persona_Trabajador">
+              <PropertyRef Name="AreaTrabajoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FKVentas365277">
+          <End Role="Persona_Trabajador" Type="Self.Persona_Trabajador" Multiplicity="1" />
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persona_Trabajador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ventas">
+              <PropertyRef Name="TrabajadorPersonaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FKVentas49889">
+          <End Role="InvertarioProductos" Type="Self.InvertarioProductos" Multiplicity="1" />
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvertarioProductos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ventas">
+              <PropertyRef Name="InvertarioProductosId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InvertarioMaterialesProductoConfeccionadoInventarioMaterial">
+          <End Role="InvertarioMateriales" Type="Self.InvertarioMateriales" Multiplicity="1" />
+          <End Role="ProductoConfeccionadoInventarioMaterial" Type="Self.ProductoConfeccionadoInventarioMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvertarioMateriales">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductoConfeccionadoInventarioMaterial">
+              <PropertyRef Name="InvertarioMateriasPrimasId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialCompraMateriales">
+          <End Role="Material" Type="Self.Material" Multiplicity="1" />
+          <End Role="CompraMateriales" Type="Self.CompraMateriales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CompraMateriales">
+              <PropertyRef Name="MateriaPrimaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MateriasPrimasUsadasEntradaProductos">
+          <End Role="EntradaProductos" Type="Self.EntradaProductos" Multiplicity="1" />
+          <End Role="ProductoConfeccionadoInventarioMaterial" Type="Self.ProductoConfeccionadoInventarioMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EntradaProductos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductoConfeccionadoInventarioMaterial">
+              <PropertyRef Name="EntradaProductosId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OcupacionTrabajador">
+          <End Role="Ocupacion" Type="Self.Ocupacion" Multiplicity="1" />
+          <End Role="Persona_Trabajador" Type="Self.Persona_Trabajador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ocupacion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Persona_Trabajador">
+              <PropertyRef Name="OcupacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductoEntradaProductos">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+          <End Role="EntradaProductos" Type="Self.EntradaProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EntradaProductos">
+              <PropertyRef Name="ProductoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proveedor_inherits_Persona">
+          <End Role="Persona" Type="Self.Persona" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Persona_Proveedor" Type="Self.Persona_Proveedor" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Persona">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Persona_Proveedor">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trabajador_inherits_Persona">
+          <End Role="Persona" Type="Self.Persona" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Persona_Trabajador" Type="Self.Persona_Trabajador" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Persona">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Persona_Trabajador">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PvraDataModelStoreContainer">
+          <EntitySet Name="AreaTrabajo" EntityType="Self.AreaTrabajo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Color" EntityType="Self.Color" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompraMateriales" EntityType="Self.CompraMateriales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConceptoCosto" EntityType="Self.ConceptoCosto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConceptoGasto" EntityType="Self.ConceptoGasto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EntradaProductos" EntityType="Self.EntradaProductos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvertarioMateriales" EntityType="Self.InvertarioMateriales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvertarioProductos" EntityType="Self.InvertarioProductos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Material" EntityType="Self.Material" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ocupacion" EntityType="Self.Ocupacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OtrosGastos" EntityType="Self.OtrosGastos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Persona" EntityType="Self.Persona" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Persona_Proveedor" EntityType="Self.Persona_Proveedor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Persona_Trabajador" EntityType="Self.Persona_Trabajador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Producto_Material" EntityType="Self.Producto_Material" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductoConfeccionadoInventarioMaterial" EntityType="Self.ProductoConfeccionadoInventarioMaterial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Salario" EntityType="Self.Salario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Salario_CostoProduccion" EntityType="Self.Salario_CostoProduccion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalidaMateriales" EntityType="Self.SalidaMateriales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UnidadMedida" EntityType="Self.UnidadMedida" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ventas" EntityType="Self.Ventas" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ColorCompraMateriales" Association="Self.FK_ColorCompraMateriales">
+            <End Role="Color" EntitySet="Color" />
+            <End Role="CompraMateriales" EntitySet="CompraMateriales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ColorEntradaProductos" Association="Self.FK_ColorEntradaProductos">
+            <End Role="Color" EntitySet="Color" />
+            <End Role="EntradaProductos" EntitySet="EntradaProductos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ColorInvertarioMateriales" Association="Self.FK_ColorInvertarioMateriales">
+            <End Role="Color" EntitySet="Color" />
+            <End Role="InvertarioMateriales" EntitySet="InvertarioMateriales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ColorInvertarioProductos" Association="Self.FK_ColorInvertarioProductos">
+            <End Role="Color" EntitySet="Color" />
+            <End Role="InvertarioProductos" EntitySet="InvertarioProductos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConceptoCostoCostoProduccion" Association="Self.FK_ConceptoCostoCostoProduccion">
+            <End Role="ConceptoCosto" EntitySet="ConceptoCosto" />
+            <End Role="Salario_CostoProduccion" EntitySet="Salario_CostoProduccion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CostoProduccion_inherits_Salario" Association="Self.FK_CostoProduccion_inherits_Salario">
+            <End Role="Salario" EntitySet="Salario" />
+            <End Role="Salario_CostoProduccion" EntitySet="Salario_CostoProduccion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntradaProductosCostoProduccion" Association="Self.FK_EntradaProductosCostoProduccion">
+            <End Role="EntradaProductos" EntitySet="EntradaProductos" />
+            <End Role="Salario_CostoProduccion" EntitySet="Salario_CostoProduccion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FKCompraMate814930" Association="Self.FK_FKCompraMate814930">
+            <End Role="Persona_Proveedor" EntitySet="Persona_Proveedor" />
+            <End Role="CompraMateriales" EntitySet="CompraMateriales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FKInvertario944054" Association="Self.FK_FKInvertario944054">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="InvertarioProductos" EntitySet="InvertarioProductos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FKInvertario965581" Association="Self.FK_FKInvertario965581">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="InvertarioMateriales" EntitySet="InvertarioMateriales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FKMaterial596249" Association="Self.FK_FKMaterial596249">
+            <End Role="UnidadMedida" EntitySet="UnidadMedida" />
+            <End Role="Material" EntitySet="Material" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FKOtrosGasto791932" Association="Self.FK_FKOtrosGasto791932">
+            <End Role="ConceptoGasto" EntitySet="ConceptoGasto" />
+            <End Role="OtrosGastos" EntitySet="OtrosGastos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FKProducto_M10400" Association="Self.FK_FKProducto_M10400">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="Producto_Material" EntitySet="Producto_Material" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FKProducto_M71108" Association="Self.FK_FKProducto_M71108">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="Producto_Material" EntitySet="Producto_Material" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FKSalario6470" Association="Self.FK_FKSalario6470">
+            <End Role="Persona_Trabajador" EntitySet="Persona_Trabajador" />
+            <End Role="Salario" EntitySet="Salario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FKSalidaMate497011" Association="Self.FK_FKSalidaMate497011">
+            <End Role="InvertarioMateriales" EntitySet="InvertarioMateriales" />
+            <End Role="SalidaMateriales" EntitySet="SalidaMateriales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FKTrabajador28344" Association="Self.FK_FKTrabajador28344">
+            <End Role="AreaTrabajo" EntitySet="AreaTrabajo" />
+            <End Role="Persona_Trabajador" EntitySet="Persona_Trabajador" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FKVentas365277" Association="Self.FK_FKVentas365277">
+            <End Role="Persona_Trabajador" EntitySet="Persona_Trabajador" />
+            <End Role="Ventas" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FKVentas49889" Association="Self.FK_FKVentas49889">
+            <End Role="InvertarioProductos" EntitySet="InvertarioProductos" />
+            <End Role="Ventas" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvertarioMaterialesProductoConfeccionadoInventarioMaterial" Association="Self.FK_InvertarioMaterialesProductoConfeccionadoInventarioMaterial">
+            <End Role="InvertarioMateriales" EntitySet="InvertarioMateriales" />
+            <End Role="ProductoConfeccionadoInventarioMaterial" EntitySet="ProductoConfeccionadoInventarioMaterial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialCompraMateriales" Association="Self.FK_MaterialCompraMateriales">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="CompraMateriales" EntitySet="CompraMateriales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MateriasPrimasUsadasEntradaProductos" Association="Self.FK_MateriasPrimasUsadasEntradaProductos">
+            <End Role="EntradaProductos" EntitySet="EntradaProductos" />
+            <End Role="ProductoConfeccionadoInventarioMaterial" EntitySet="ProductoConfeccionadoInventarioMaterial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OcupacionTrabajador" Association="Self.FK_OcupacionTrabajador">
+            <End Role="Ocupacion" EntitySet="Ocupacion" />
+            <End Role="Persona_Trabajador" EntitySet="Persona_Trabajador" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductoEntradaProductos" Association="Self.FK_ProductoEntradaProductos">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="EntradaProductos" EntitySet="EntradaProductos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proveedor_inherits_Persona" Association="Self.FK_Proveedor_inherits_Persona">
+            <End Role="Persona" EntitySet="Persona" />
+            <End Role="Persona_Proveedor" EntitySet="Persona_Proveedor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trabajador_inherits_Persona" Association="Self.FK_Trabajador_inherits_Persona">
+            <End Role="Persona" EntitySet="Persona" />
+            <End Role="Persona_Trabajador" EntitySet="Persona_Trabajador" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PvraDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AreaTrabajo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Persona_Trabajador" Relationship="Self.FK_FKTrabajador28344" FromRole="AreaTrabajo" ToRole="Persona_Trabajador" />
+        </EntityType>
+        <EntityType Name="Color">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CompraMateriales" Relationship="Self.FK_ColorCompraMateriales" FromRole="Color" ToRole="CompraMateriales" />
+          <NavigationProperty Name="EntradaProductos" Relationship="Self.FK_ColorEntradaProductos" FromRole="Color" ToRole="EntradaProductos" />
+          <NavigationProperty Name="InvertarioMateriales" Relationship="Self.FK_ColorInvertarioMateriales" FromRole="Color" ToRole="InvertarioMateriales" />
+          <NavigationProperty Name="InvertarioProductos" Relationship="Self.FK_ColorInvertarioProductos" FromRole="Color" ToRole="InvertarioProductos" />
+        </EntityType>
+        <EntityType Name="CompraMateriales">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MateriaPrimaId" Type="Int32" Nullable="false" />
+          <Property Name="ColorId" Type="Int32" Nullable="false" />
+          <Property Name="Importe" Type="Decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="Cantidad" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Observacion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="UsuarioId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProveedorPersonaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Color" Relationship="Self.FK_ColorCompraMateriales" FromRole="CompraMateriales" ToRole="Color" />
+          <NavigationProperty Name="Persona_Proveedor" Relationship="Self.FK_FKCompraMate814930" FromRole="CompraMateriales" ToRole="Persona_Proveedor" />
+          <NavigationProperty Name="Material" Relationship="Self.FK_MaterialCompraMateriales" FromRole="CompraMateriales" ToRole="Material" />
+        </EntityType>
+        <EntityType Name="ConceptoCosto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Salario_CostoProduccion" Relationship="Self.FK_ConceptoCostoCostoProduccion" FromRole="ConceptoCosto" ToRole="Salario_CostoProduccion" />
+        </EntityType>
+        <EntityType Name="ConceptoGasto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="OtrosGastos" Relationship="Self.FK_FKOtrosGasto791932" FromRole="ConceptoGasto" ToRole="OtrosGastos" />
+        </EntityType>
+        <EntityType Name="EntradaProductos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ProductoId" Type="Int32" Nullable="false" />
+          <Property Name="ColorId" Type="Int32" Nullable="false" />
+          <Property Name="Importe" Type="Decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="Cantidad" Type="Int32" Nullable="false" />
+          <Property Name="Observacion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="UsuarioId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Confeccionado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Color" Relationship="Self.FK_ColorEntradaProductos" FromRole="EntradaProductos" ToRole="Color" />
+          <NavigationProperty Name="Salario_CostoProduccion" Relationship="Self.FK_EntradaProductosCostoProduccion" FromRole="EntradaProductos" ToRole="Salario_CostoProduccion" />
+          <NavigationProperty Name="ProductoConfeccionadoInventarioMaterial" Relationship="Self.FK_MateriasPrimasUsadasEntradaProductos" FromRole="EntradaProductos" ToRole="ProductoConfeccionadoInventarioMaterial" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK_ProductoEntradaProductos" FromRole="EntradaProductos" ToRole="Producto" />
+        </EntityType>
+        <EntityType Name="InvertarioMateriales">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MateriaPrimaId" Type="Int32" Nullable="false" />
+          <Property Name="Precio" Type="Decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="Existencia" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ColorId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Color" Relationship="Self.FK_ColorInvertarioMateriales" FromRole="InvertarioMateriales" ToRole="Color" />
+          <NavigationProperty Name="Material" Relationship="Self.FK_FKInvertario965581" FromRole="InvertarioMateriales" ToRole="Material" />
+          <NavigationProperty Name="SalidaMateriales" Relationship="Self.FK_FKSalidaMate497011" FromRole="InvertarioMateriales" ToRole="SalidaMateriales" />
+          <NavigationProperty Name="ProductoConfeccionadoInventarioMaterial" Relationship="Self.FK_InvertarioMaterialesProductoConfeccionadoInventarioMaterial" FromRole="InvertarioMateriales" ToRole="ProductoConfeccionadoInventarioMaterial" />
+        </EntityType>
+        <EntityType Name="InvertarioProductos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductoId" Type="Int32" Nullable="false" />
+          <Property Name="ColorId" Type="Int32" Nullable="false" />
+          <Property Name="CostoUnitario" Type="Decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="Existencia" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Color" Relationship="Self.FK_ColorInvertarioProductos" FromRole="InvertarioProductos" ToRole="Color" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK_FKInvertario944054" FromRole="InvertarioProductos" ToRole="Producto" />
+          <NavigationProperty Name="Ventas" Relationship="Self.FK_FKVentas49889" FromRole="InvertarioProductos" ToRole="Ventas" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="UnidadMedidaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CompraMateriales" Relationship="Self.FK_MaterialCompraMateriales" FromRole="Material" ToRole="CompraMateriales" />
+          <NavigationProperty Name="InvertarioMateriales" Relationship="Self.FK_FKInvertario965581" FromRole="Material" ToRole="InvertarioMateriales" />
+          <NavigationProperty Name="UnidadMedida" Relationship="Self.FK_FKMaterial596249" FromRole="Material" ToRole="UnidadMedida" />
+          <NavigationProperty Name="Producto_Material" Relationship="Self.FK_FKProducto_M10400" FromRole="Material" ToRole="Producto_Material" />
+        </EntityType>
+        <EntityType Name="Ocupacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Persona_Trabajador" Relationship="Self.FK_OcupacionTrabajador" FromRole="Ocupacion" ToRole="Persona_Trabajador" />
+        </EntityType>
+        <EntityType Name="OtrosGastos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Importe" Type="Decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="UsuarioId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ConceptoGastoId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ConceptoGasto" Relationship="Self.FK_FKOtrosGasto791932" FromRole="OtrosGastos" ToRole="ConceptoGasto" />
+        </EntityType>
+        <EntityType Name="Persona">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombres" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellidos" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Persona_Proveedor" BaseType="PvraDataModel.Persona">
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CompraMateriales" Relationship="Self.FK_FKCompraMate814930" FromRole="Persona_Proveedor" ToRole="CompraMateriales" />
+        </EntityType>
+        <EntityType Name="Persona_Trabajador" BaseType="PvraDataModel.Persona">
+          <Property Name="AreaTrabajoId" Type="Int32" Nullable="false" />
+          <Property Name="OcupacionId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AreaTrabajo" Relationship="Self.FK_FKTrabajador28344" FromRole="Persona_Trabajador" ToRole="AreaTrabajo" />
+          <NavigationProperty Name="Ocupacion" Relationship="Self.FK_OcupacionTrabajador" FromRole="Persona_Trabajador" ToRole="Ocupacion" />
+          <NavigationProperty Name="Salario" Relationship="Self.FK_FKSalario6470" FromRole="Persona_Trabajador" ToRole="Salario" />
+          <NavigationProperty Name="Ventas" Relationship="Self.FK_FKVentas365277" FromRole="Persona_Trabajador" ToRole="Ventas" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Modelo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Talla" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EntradaProductos" Relationship="Self.FK_ProductoEntradaProductos" FromRole="Producto" ToRole="EntradaProductos" />
+          <NavigationProperty Name="InvertarioProductos" Relationship="Self.FK_FKInvertario944054" FromRole="Producto" ToRole="InvertarioProductos" />
+          <NavigationProperty Name="Producto_Material" Relationship="Self.FK_FKProducto_M71108" FromRole="Producto" ToRole="Producto_Material" />
+        </EntityType>
+        <EntityType Name="Producto_Material">
+          <Key>
+            <PropertyRef Name="ProductoId" />
+            <PropertyRef Name="MateriaPrimaId" />
+          </Key>
+          <Property Name="ProductoId" Type="Int32" Nullable="false" />
+          <Property Name="MateriaPrimaId" Type="Int32" Nullable="false" />
+          <Property Name="Cantidad" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Material" Relationship="Self.FK_FKProducto_M10400" FromRole="Producto_Material" ToRole="Material" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK_FKProducto_M71108" FromRole="Producto_Material" ToRole="Producto" />
+        </EntityType>
+        <EntityType Name="ProductoConfeccionadoInventarioMaterial">
+          <Key>
+            <PropertyRef Name="InvertarioMateriasPrimasId" />
+            <PropertyRef Name="EntradaProductosId" />
+          </Key>
+          <Property Name="InvertarioMateriasPrimasId" Type="Int32" Nullable="false" />
+          <Property Name="EntradaProductosId" Type="Int32" Nullable="false" />
+          <Property Name="Cantidad" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <NavigationProperty Name="EntradaProductos" Relationship="Self.FK_MateriasPrimasUsadasEntradaProductos" FromRole="ProductoConfeccionadoInventarioMaterial" ToRole="EntradaProductos" />
+          <NavigationProperty Name="InvertarioMateriales" Relationship="Self.FK_InvertarioMaterialesProductoConfeccionadoInventarioMaterial" FromRole="ProductoConfeccionadoInventarioMaterial" ToRole="InvertarioMateriales" />
+        </EntityType>
+        <EntityType Name="Salario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Importe" Type="Decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="TrabajadorPersonaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Persona_Trabajador" Relationship="Self.FK_FKSalario6470" FromRole="Salario" ToRole="Persona_Trabajador" />
+        </EntityType>
+        <EntityType Name="Salario_CostoProduccion" BaseType="PvraDataModel.Salario">
+          <Property Name="ConceptoCostoId" Type="Int32" Nullable="false" />
+          <Property Name="EntradaProductosId" Type="Int32" />
+          <NavigationProperty Name="ConceptoCosto" Relationship="Self.FK_ConceptoCostoCostoProduccion" FromRole="Salario_CostoProduccion" ToRole="ConceptoCosto" />
+          <NavigationProperty Name="EntradaProductos" Relationship="Self.FK_EntradaProductosCostoProduccion" FromRole="Salario_CostoProduccion" ToRole="EntradaProductos" />
+        </EntityType>
+        <EntityType Name="SalidaMateriales">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Cantidad" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Observacion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="UsuarioId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="InvertarioMateriasPrimasId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="InvertarioMateriales" Relationship="Self.FK_FKSalidaMate497011" FromRole="SalidaMateriales" ToRole="InvertarioMateriales" />
+        </EntityType>
+        <EntityType Name="UnidadMedida">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Unidad" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Siglas" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Material" Relationship="Self.FK_FKMaterial596249" FromRole="UnidadMedida" ToRole="Material" />
+        </EntityType>
+        <EntityType Name="Ventas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Importe" Type="Decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="Cantidad" Type="Int32" Nullable="false" />
+          <Property Name="Observacion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="UsuarioId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="InvertarioProductosId" Type="Int32" Nullable="false" />
+          <Property Name="TrabajadorPersonaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="InvertarioProductos" Relationship="Self.FK_FKVentas49889" FromRole="Ventas" ToRole="InvertarioProductos" />
+          <NavigationProperty Name="Persona_Trabajador" Relationship="Self.FK_FKVentas365277" FromRole="Ventas" ToRole="Persona_Trabajador" />
+        </EntityType>
+        <Association Name="FK_FKTrabajador28344">
+          <End Role="AreaTrabajo" Type="Self.AreaTrabajo" Multiplicity="1" />
+          <End Role="Persona_Trabajador" Type="Self.Persona_Trabajador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AreaTrabajo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Persona_Trabajador">
+              <PropertyRef Name="AreaTrabajoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ColorCompraMateriales">
+          <End Role="Color" Type="Self.Color" Multiplicity="1" />
+          <End Role="CompraMateriales" Type="Self.CompraMateriales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CompraMateriales">
+              <PropertyRef Name="ColorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ColorEntradaProductos">
+          <End Role="Color" Type="Self.Color" Multiplicity="1" />
+          <End Role="EntradaProductos" Type="Self.EntradaProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EntradaProductos">
+              <PropertyRef Name="ColorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ColorInvertarioMateriales">
+          <End Role="Color" Type="Self.Color" Multiplicity="1" />
+          <End Role="InvertarioMateriales" Type="Self.InvertarioMateriales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InvertarioMateriales">
+              <PropertyRef Name="ColorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ColorInvertarioProductos">
+          <End Role="Color" Type="Self.Color" Multiplicity="1" />
+          <End Role="InvertarioProductos" Type="Self.InvertarioProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InvertarioProductos">
+              <PropertyRef Name="ColorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FKCompraMate814930">
+          <End Role="Persona_Proveedor" Type="Self.Persona_Proveedor" Multiplicity="1" />
+          <End Role="CompraMateriales" Type="Self.CompraMateriales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persona_Proveedor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CompraMateriales">
+              <PropertyRef Name="ProveedorPersonaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialCompraMateriales">
+          <End Role="Material" Type="Self.Material" Multiplicity="1" />
+          <End Role="CompraMateriales" Type="Self.CompraMateriales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CompraMateriales">
+              <PropertyRef Name="MateriaPrimaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConceptoCostoCostoProduccion">
+          <End Role="ConceptoCosto" Type="Self.ConceptoCosto" Multiplicity="1" />
+          <End Role="Salario_CostoProduccion" Type="Self.Salario_CostoProduccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConceptoCosto">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Salario_CostoProduccion">
+              <PropertyRef Name="ConceptoCostoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FKOtrosGasto791932">
+          <End Role="ConceptoGasto" Type="Self.ConceptoGasto" Multiplicity="1" />
+          <End Role="OtrosGastos" Type="Self.OtrosGastos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConceptoGasto">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OtrosGastos">
+              <PropertyRef Name="ConceptoGastoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EntradaProductosCostoProduccion">
+          <End Role="EntradaProductos" Type="Self.EntradaProductos" Multiplicity="0..1" />
+          <End Role="Salario_CostoProduccion" Type="Self.Salario_CostoProduccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EntradaProductos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Salario_CostoProduccion">
+              <PropertyRef Name="EntradaProductosId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MateriasPrimasUsadasEntradaProductos">
+          <End Role="EntradaProductos" Type="Self.EntradaProductos" Multiplicity="1" />
+          <End Role="ProductoConfeccionadoInventarioMaterial" Type="Self.ProductoConfeccionadoInventarioMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EntradaProductos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductoConfeccionadoInventarioMaterial">
+              <PropertyRef Name="EntradaProductosId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductoEntradaProductos">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+          <End Role="EntradaProductos" Type="Self.EntradaProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EntradaProductos">
+              <PropertyRef Name="ProductoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FKInvertario965581">
+          <End Role="Material" Type="Self.Material" Multiplicity="1" />
+          <End Role="InvertarioMateriales" Type="Self.InvertarioMateriales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InvertarioMateriales">
+              <PropertyRef Name="MateriaPrimaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FKSalidaMate497011">
+          <End Role="InvertarioMateriales" Type="Self.InvertarioMateriales" Multiplicity="1" />
+          <End Role="SalidaMateriales" Type="Self.SalidaMateriales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvertarioMateriales">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SalidaMateriales">
+              <PropertyRef Name="InvertarioMateriasPrimasId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InvertarioMaterialesProductoConfeccionadoInventarioMaterial">
+          <End Role="InvertarioMateriales" Type="Self.InvertarioMateriales" Multiplicity="1" />
+          <End Role="ProductoConfeccionadoInventarioMaterial" Type="Self.ProductoConfeccionadoInventarioMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvertarioMateriales">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductoConfeccionadoInventarioMaterial">
+              <PropertyRef Name="InvertarioMateriasPrimasId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FKInvertario944054">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+          <End Role="InvertarioProductos" Type="Self.InvertarioProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InvertarioProductos">
+              <PropertyRef Name="ProductoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FKVentas49889">
+          <End Role="InvertarioProductos" Type="Self.InvertarioProductos" Multiplicity="1" />
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvertarioProductos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ventas">
+              <PropertyRef Name="InvertarioProductosId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FKMaterial596249">
+          <End Role="UnidadMedida" Type="Self.UnidadMedida" Multiplicity="1" />
+          <End Role="Material" Type="Self.Material" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UnidadMedida">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Material">
+              <PropertyRef Name="UnidadMedidaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FKProducto_M10400">
+          <End Role="Material" Type="Self.Material" Multiplicity="1" />
+          <End Role="Producto_Material" Type="Self.Producto_Material" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Producto_Material">
+              <PropertyRef Name="MateriaPrimaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OcupacionTrabajador">
+          <End Role="Ocupacion" Type="Self.Ocupacion" Multiplicity="1" />
+          <End Role="Persona_Trabajador" Type="Self.Persona_Trabajador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ocupacion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Persona_Trabajador">
+              <PropertyRef Name="OcupacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FKSalario6470">
+          <End Role="Persona_Trabajador" Type="Self.Persona_Trabajador" Multiplicity="1" />
+          <End Role="Salario" Type="Self.Salario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persona_Trabajador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Salario">
+              <PropertyRef Name="TrabajadorPersonaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FKVentas365277">
+          <End Role="Persona_Trabajador" Type="Self.Persona_Trabajador" Multiplicity="1" />
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persona_Trabajador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ventas">
+              <PropertyRef Name="TrabajadorPersonaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FKProducto_M71108">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+          <End Role="Producto_Material" Type="Self.Producto_Material" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Producto_Material">
+              <PropertyRef Name="ProductoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PvraDataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AreaTrabajo" EntityType="Self.AreaTrabajo" />
+          <EntitySet Name="Color" EntityType="Self.Color" />
+          <EntitySet Name="CompraMateriales" EntityType="Self.CompraMateriales" />
+          <EntitySet Name="ConceptoCosto" EntityType="Self.ConceptoCosto" />
+          <EntitySet Name="ConceptoGasto" EntityType="Self.ConceptoGasto" />
+          <EntitySet Name="EntradaProductos" EntityType="Self.EntradaProductos" />
+          <EntitySet Name="InvertarioMateriales" EntityType="Self.InvertarioMateriales" />
+          <EntitySet Name="InvertarioProductos" EntityType="Self.InvertarioProductos" />
+          <EntitySet Name="Material" EntityType="Self.Material" />
+          <EntitySet Name="Ocupacion" EntityType="Self.Ocupacion" />
+          <EntitySet Name="OtrosGastos" EntityType="Self.OtrosGastos" />
+          <EntitySet Name="Persona" EntityType="Self.Persona" />
+          <EntitySet Name="Producto" EntityType="Self.Producto" />
+          <EntitySet Name="Producto_Material" EntityType="Self.Producto_Material" />
+          <EntitySet Name="ProductoConfeccionadoInventarioMaterial" EntityType="Self.ProductoConfeccionadoInventarioMaterial" />
+          <EntitySet Name="Salario" EntityType="Self.Salario" />
+          <EntitySet Name="SalidaMateriales" EntityType="Self.SalidaMateriales" />
+          <EntitySet Name="UnidadMedida" EntityType="Self.UnidadMedida" />
+          <EntitySet Name="Ventas" EntityType="Self.Ventas" />
+          <AssociationSet Name="FK_FKTrabajador28344" Association="Self.FK_FKTrabajador28344">
+            <End Role="AreaTrabajo" EntitySet="AreaTrabajo" />
+            <End Role="Persona_Trabajador" EntitySet="Persona" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ColorCompraMateriales" Association="Self.FK_ColorCompraMateriales">
+            <End Role="Color" EntitySet="Color" />
+            <End Role="CompraMateriales" EntitySet="CompraMateriales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ColorEntradaProductos" Association="Self.FK_ColorEntradaProductos">
+            <End Role="Color" EntitySet="Color" />
+            <End Role="EntradaProductos" EntitySet="EntradaProductos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ColorInvertarioMateriales" Association="Self.FK_ColorInvertarioMateriales">
+            <End Role="Color" EntitySet="Color" />
+            <End Role="InvertarioMateriales" EntitySet="InvertarioMateriales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ColorInvertarioProductos" Association="Self.FK_ColorInvertarioProductos">
+            <End Role="Color" EntitySet="Color" />
+            <End Role="InvertarioProductos" EntitySet="InvertarioProductos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FKCompraMate814930" Association="Self.FK_FKCompraMate814930">
+            <End Role="Persona_Proveedor" EntitySet="Persona" />
+            <End Role="CompraMateriales" EntitySet="CompraMateriales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialCompraMateriales" Association="Self.FK_MaterialCompraMateriales">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="CompraMateriales" EntitySet="CompraMateriales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConceptoCostoCostoProduccion" Association="Self.FK_ConceptoCostoCostoProduccion">
+            <End Role="ConceptoCosto" EntitySet="ConceptoCosto" />
+            <End Role="Salario_CostoProduccion" EntitySet="Salario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FKOtrosGasto791932" Association="Self.FK_FKOtrosGasto791932">
+            <End Role="ConceptoGasto" EntitySet="ConceptoGasto" />
+            <End Role="OtrosGastos" EntitySet="OtrosGastos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntradaProductosCostoProduccion" Association="Self.FK_EntradaProductosCostoProduccion">
+            <End Role="EntradaProductos" EntitySet="EntradaProductos" />
+            <End Role="Salario_CostoProduccion" EntitySet="Salario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MateriasPrimasUsadasEntradaProductos" Association="Self.FK_MateriasPrimasUsadasEntradaProductos">
+            <End Role="EntradaProductos" EntitySet="EntradaProductos" />
+            <End Role="ProductoConfeccionadoInventarioMaterial" EntitySet="ProductoConfeccionadoInventarioMaterial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductoEntradaProductos" Association="Self.FK_ProductoEntradaProductos">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="EntradaProductos" EntitySet="EntradaProductos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FKInvertario965581" Association="Self.FK_FKInvertario965581">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="InvertarioMateriales" EntitySet="InvertarioMateriales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FKSalidaMate497011" Association="Self.FK_FKSalidaMate497011">
+            <End Role="InvertarioMateriales" EntitySet="InvertarioMateriales" />
+            <End Role="SalidaMateriales" EntitySet="SalidaMateriales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvertarioMaterialesProductoConfeccionadoInventarioMaterial" Association="Self.FK_InvertarioMaterialesProductoConfeccionadoInventarioMaterial">
+            <End Role="InvertarioMateriales" EntitySet="InvertarioMateriales" />
+            <End Role="ProductoConfeccionadoInventarioMaterial" EntitySet="ProductoConfeccionadoInventarioMaterial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FKInvertario944054" Association="Self.FK_FKInvertario944054">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="InvertarioProductos" EntitySet="InvertarioProductos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FKVentas49889" Association="Self.FK_FKVentas49889">
+            <End Role="InvertarioProductos" EntitySet="InvertarioProductos" />
+            <End Role="Ventas" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FKMaterial596249" Association="Self.FK_FKMaterial596249">
+            <End Role="UnidadMedida" EntitySet="UnidadMedida" />
+            <End Role="Material" EntitySet="Material" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FKProducto_M10400" Association="Self.FK_FKProducto_M10400">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="Producto_Material" EntitySet="Producto_Material" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OcupacionTrabajador" Association="Self.FK_OcupacionTrabajador">
+            <End Role="Ocupacion" EntitySet="Ocupacion" />
+            <End Role="Persona_Trabajador" EntitySet="Persona" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FKSalario6470" Association="Self.FK_FKSalario6470">
+            <End Role="Persona_Trabajador" EntitySet="Persona" />
+            <End Role="Salario" EntitySet="Salario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FKVentas365277" Association="Self.FK_FKVentas365277">
+            <End Role="Persona_Trabajador" EntitySet="Persona" />
+            <End Role="Ventas" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FKProducto_M71108" Association="Self.FK_FKProducto_M71108">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="Producto_Material" EntitySet="Producto_Material" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PvraDataModelStoreContainer" CdmEntityContainer="PvraDataEntities">
+          <EntitySetMapping Name="AreaTrabajo">
+            <EntityTypeMapping TypeName="PvraDataModel.AreaTrabajo">
+              <MappingFragment StoreEntitySet="AreaTrabajo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Color">
+            <EntityTypeMapping TypeName="PvraDataModel.Color">
+              <MappingFragment StoreEntitySet="Color">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompraMateriales">
+            <EntityTypeMapping TypeName="PvraDataModel.CompraMateriales">
+              <MappingFragment StoreEntitySet="CompraMateriales">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="MateriaPrimaId" ColumnName="MateriaPrimaId" />
+                <ScalarProperty Name="ColorId" ColumnName="ColorId" />
+                <ScalarProperty Name="Importe" ColumnName="Importe" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+                <ScalarProperty Name="ProveedorPersonaId" ColumnName="ProveedorPersonaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConceptoCosto">
+            <EntityTypeMapping TypeName="PvraDataModel.ConceptoCosto">
+              <MappingFragment StoreEntitySet="ConceptoCosto">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConceptoGasto">
+            <EntityTypeMapping TypeName="PvraDataModel.ConceptoGasto">
+              <MappingFragment StoreEntitySet="ConceptoGasto">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EntradaProductos">
+            <EntityTypeMapping TypeName="PvraDataModel.EntradaProductos">
+              <MappingFragment StoreEntitySet="EntradaProductos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+                <ScalarProperty Name="ColorId" ColumnName="ColorId" />
+                <ScalarProperty Name="Importe" ColumnName="Importe" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+                <ScalarProperty Name="Confeccionado" ColumnName="Confeccionado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvertarioMateriales">
+            <EntityTypeMapping TypeName="PvraDataModel.InvertarioMateriales">
+              <MappingFragment StoreEntitySet="InvertarioMateriales">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MateriaPrimaId" ColumnName="MateriaPrimaId" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Existencia" ColumnName="Existencia" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="ColorId" ColumnName="ColorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvertarioProductos">
+            <EntityTypeMapping TypeName="PvraDataModel.InvertarioProductos">
+              <MappingFragment StoreEntitySet="InvertarioProductos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+                <ScalarProperty Name="ColorId" ColumnName="ColorId" />
+                <ScalarProperty Name="CostoUnitario" ColumnName="CostoUnitario" />
+                <ScalarProperty Name="Existencia" ColumnName="Existencia" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Material">
+            <EntityTypeMapping TypeName="PvraDataModel.Material">
+              <MappingFragment StoreEntitySet="Material">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="UnidadMedidaId" ColumnName="UnidadMedidaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ocupacion">
+            <EntityTypeMapping TypeName="PvraDataModel.Ocupacion">
+              <MappingFragment StoreEntitySet="Ocupacion">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OtrosGastos">
+            <EntityTypeMapping TypeName="PvraDataModel.OtrosGastos">
+              <MappingFragment StoreEntitySet="OtrosGastos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Importe" ColumnName="Importe" />
+                <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+                <ScalarProperty Name="ConceptoGastoId" ColumnName="ConceptoGastoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Persona">
+            <EntityTypeMapping TypeName="IsTypeOf(PvraDataModel.Persona)">
+              <MappingFragment StoreEntitySet="Persona">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(PvraDataModel.Persona_Trabajador)">
+              <MappingFragment StoreEntitySet="Persona_Trabajador">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OcupacionId" ColumnName="OcupacionId" />
+                <ScalarProperty Name="AreaTrabajoId" ColumnName="AreaTrabajoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(PvraDataModel.Persona_Proveedor)">
+              <MappingFragment StoreEntitySet="Persona_Proveedor">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Producto">
+            <EntityTypeMapping TypeName="PvraDataModel.Producto">
+              <MappingFragment StoreEntitySet="Producto">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+                <ScalarProperty Name="Talla" ColumnName="Talla" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Producto_Material">
+            <EntityTypeMapping TypeName="PvraDataModel.Producto_Material">
+              <MappingFragment StoreEntitySet="Producto_Material">
+                <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+                <ScalarProperty Name="MateriaPrimaId" ColumnName="MateriaPrimaId" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductoConfeccionadoInventarioMaterial">
+            <EntityTypeMapping TypeName="PvraDataModel.ProductoConfeccionadoInventarioMaterial">
+              <MappingFragment StoreEntitySet="ProductoConfeccionadoInventarioMaterial">
+                <ScalarProperty Name="InvertarioMateriasPrimasId" ColumnName="InvertarioMateriasPrimasId" />
+                <ScalarProperty Name="EntradaProductosId" ColumnName="EntradaProductosId" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Salario">
+            <EntityTypeMapping TypeName="IsTypeOf(PvraDataModel.Salario)">
+              <MappingFragment StoreEntitySet="Salario">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TrabajadorPersonaId" ColumnName="TrabajadorPersonaId" />
+                <ScalarProperty Name="Importe" ColumnName="Importe" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(PvraDataModel.Salario_CostoProduccion)">
+              <MappingFragment StoreEntitySet="Salario_CostoProduccion">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EntradaProductosId" ColumnName="EntradaProductosId" />
+                <ScalarProperty Name="ConceptoCostoId" ColumnName="ConceptoCostoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalidaMateriales">
+            <EntityTypeMapping TypeName="PvraDataModel.SalidaMateriales">
+              <MappingFragment StoreEntitySet="SalidaMateriales">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+                <ScalarProperty Name="InvertarioMateriasPrimasId" ColumnName="InvertarioMateriasPrimasId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UnidadMedida">
+            <EntityTypeMapping TypeName="PvraDataModel.UnidadMedida">
+              <MappingFragment StoreEntitySet="UnidadMedida">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Unidad" ColumnName="Unidad" />
+                <ScalarProperty Name="Siglas" ColumnName="Siglas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ventas">
+            <EntityTypeMapping TypeName="PvraDataModel.Ventas">
+              <MappingFragment StoreEntitySet="Ventas">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Importe" ColumnName="Importe" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+                <ScalarProperty Name="InvertarioProductosId" ColumnName="InvertarioProductosId" />
+                <ScalarProperty Name="TrabajadorPersonaId" ColumnName="TrabajadorPersonaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
