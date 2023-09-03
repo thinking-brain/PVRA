@@ -5,7 +5,7 @@
 
 @section style
 {
-    @Html.DevExpress().GetStyleSheets(
+    @*@Html.DevExpress().GetStyleSheets(
         new StyleSheet { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
         new StyleSheet { ExtensionSuite = ExtensionSuite.Editors },
         new StyleSheet { ExtensionSuite = ExtensionSuite.HtmlEditor },
@@ -15,7 +15,7 @@
         new StyleSheet { ExtensionSuite = ExtensionSuite.Report },
         new StyleSheet { ExtensionSuite = ExtensionSuite.Scheduler },
         new StyleSheet { ExtensionSuite = ExtensionSuite.TreeList }
-    )
+    )*@
 }
 
 <div >
@@ -28,7 +28,7 @@
     @Html.Partial("GastosVentasGraficoPartial", Model)
 </div>
 @section devscripts{
-    @Scripts.Render("~/bundles/jquery")@Html.DevExpress().GetScripts(
+    @*@Scripts.Render("~/bundles/jquery")@Html.DevExpress().GetScripts(
         new Script { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
         new Script { ExtensionSuite = ExtensionSuite.HtmlEditor },new Script { ExtensionSuite = ExtensionSuite.GridView },
         new Script { ExtensionSuite = ExtensionSuite.PivotGrid },
@@ -37,6 +37,6 @@
         new Script { ExtensionSuite = ExtensionSuite.Report },
         new Script { ExtensionSuite = ExtensionSuite.Scheduler },
         new Script { ExtensionSuite = ExtensionSuite.TreeList }
-        )
+        )*@
 
 }

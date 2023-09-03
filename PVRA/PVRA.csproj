@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,38 +44,6 @@
     <Reference Include="DataAnnotationsExtensions">
       <HintPath>..\packages\DataAnnotationsExtensions.1.1.0.0\lib\NETFramework40\DataAnnotationsExtensions.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Charts.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Dashboard.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Dashboard.v14.1.Web, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Dashboard.v14.1.Web.Mvc5, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Data.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Office.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.PivotGrid.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Printing.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.RichEdit.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Sparkline.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.SpellChecker.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Spreadsheet.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Utils.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Web.ASPxGauges.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Web.ASPxHtmlEditor.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Web.ASPxPivotGrid.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Web.ASPxScheduler.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Web.ASPxSpellChecker.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Web.ASPxSpreadsheet.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Web.ASPxThemes.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Web.ASPxTreeList.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Web.Mvc5.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Web.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Xpo.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraCharts.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraCharts.v14.1.Web, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraGauges.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraGauges.v14.1.Presets, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraPivotGrid.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraReports.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraReports.v14.1.Web, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraScheduler.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -332,60 +302,6 @@
     <Compile Include="ModelViews\PeriodoModel.cs" />
     <Compile Include="Models\BaseTemporal\ProductoConfeccionado.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reportes\CostoDeProductosEnPeriodo.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reportes\CostoDeProductosEnPeriodo.Designer.cs">
-      <DependentUpon>CostoDeProductosEnPeriodo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\Ganancia.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reportes\Ganancia.Designer.cs">
-      <DependentUpon>Ganancia.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\VentasPorTrabajador.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reportes\VentasPorTrabajador.Designer.cs">
-      <DependentUpon>VentasPorTrabajador.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\SalarioPorTrabajador.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reportes\SalarioPorTrabajador.Designer.cs">
-      <DependentUpon>SalarioPorTrabajador.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\TrabajoSubReport.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reportes\TrabajoSubReport.Designer.cs">
-      <DependentUpon>TrabajoSubReport.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\MaterialesUtilizados.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reportes\MaterialesUtilizados.Designer.cs">
-      <DependentUpon>MaterialesUtilizados.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\MaterialesPorProveedor.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reportes\MaterialesPorProveedor.Designer.cs">
-      <DependentUpon>MaterialesPorProveedor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\MaterialesSubReport.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reportes\MaterialesSubReport.Designer.cs">
-      <DependentUpon>MaterialesSubReport.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\ProductosVendidosEnPeriodo.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reportes\ProductosVendidosEnPeriodo.Designer.cs">
-      <DependentUpon>ProductosVendidosEnPeriodo.cs</DependentUpon>
-    </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -427,7 +343,6 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="License.txt" />
-    <Content Include="Models\PvraDataModel.edmx.sql" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -638,34 +553,9 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>ResourceGlobal.Designer.cs</LastGenOutput>
     </Content>
-    <EmbeddedResource Include="Properties\licenses.licx" />
-    <EmbeddedResource Include="Reportes\CostoDeProductosEnPeriodo.resx">
-      <DependentUpon>CostoDeProductosEnPeriodo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\Ganancia.resx">
-      <DependentUpon>Ganancia.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\VentasPorTrabajador.resx">
-      <DependentUpon>VentasPorTrabajador.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\SalarioPorTrabajador.resx">
-      <DependentUpon>SalarioPorTrabajador.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\TrabajoSubReport.resx">
-      <DependentUpon>TrabajoSubReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\MaterialesUtilizados.resx">
-      <DependentUpon>MaterialesUtilizados.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\MaterialesPorProveedor.resx">
-      <DependentUpon>MaterialesPorProveedor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\MaterialesSubReport.resx">
-      <DependentUpon>MaterialesSubReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\ProductosVendidosEnPeriodo.resx">
-      <DependentUpon>ProductosVendidosEnPeriodo.cs</DependentUpon>
-    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reportes\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

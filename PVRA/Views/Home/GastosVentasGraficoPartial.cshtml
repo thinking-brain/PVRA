@@ -1,5 +1,5 @@
 ﻿@using System.Drawing
-@{
+@*@{
     var settings = new ChartControlSettings();
 
     settings.SeriesTemplate.ChangeView(DevExpress.XtraCharts.ViewType.Line); 
@@ -30,4 +30,4 @@
 
 }
 
-@Html.DevExpress().Chart(settings).Bind(Model).GetHtml()
+@Html.DevExpress().Chart(settings).Bind(Model).GetHtml()*@

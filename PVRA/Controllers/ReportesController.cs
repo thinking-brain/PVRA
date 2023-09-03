@@ -6,10 +6,10 @@ using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Web;
 using System.Web.Mvc;
-using DevExpress.XtraReports.UI;
+//using DevExpress.XtraReports.UI;
 using PVRA.Models;
 using PVRA.ModelViews;
-using PVRA.Reportes;
+//using PVRA.Reportes;
 
 namespace PVRA.Controllers
 {
@@ -18,17 +18,18 @@ namespace PVRA.Controllers
     {
         private PvraDataEntities db = new PvraDataEntities();
 
-        static XtraReport report;
+        //static XtraReport report;
 
 
         public ActionResult ReportViewerPartial()
         {
-            ViewData["Report"] = report;
+            //ViewData["Report"] = report;
             return PartialView("ReportViewerPartial");
         }
         public ActionResult ExportReportViewer()
         {
-            return DevExpress.Web.Mvc.ReportViewerExtension.ExportTo(report);
+            //return DevExpress.Web.Mvc.ReportViewerExtension.ExportTo(report);
+            throw new NotImplementedException();
         }
 
         //
@@ -53,7 +54,7 @@ namespace PVRA.Controllers
         [HttpPost]
         public ActionResult GananciaMensual(int year)
         {
-            report = new Ganancia(year);
+            //report = new Ganancia(year);
             return View("Plantilla");
         }
 
@@ -69,7 +70,7 @@ namespace PVRA.Controllers
         [HttpPost]
         public ActionResult ProductosVendidos(PeriodoModel periodo)
         {
-            report = new ProductosVendidosEnPeriodo(periodo);
+            //report = new ProductosVendidosEnPeriodo(periodo);
             return View("Plantilla");  
         }
 
@@ -85,7 +86,7 @@ namespace PVRA.Controllers
         [HttpPost]
         public ActionResult CostoDeProductos(PeriodoModel periodo)
         {
-            report = new CostoDeProductosEnPeriodo(periodo);
+            //report = new CostoDeProductosEnPeriodo(periodo);
             return View("Plantilla");  
         }
 
@@ -101,7 +102,7 @@ namespace PVRA.Controllers
         [HttpPost]
         public ActionResult SalariosPagados(PeriodoModel periodo)
         {
-            report = new SalarioPorTrabajador(periodo);
+            //report = new SalarioPorTrabajador(periodo);
             return View("Plantilla");
         }
 
@@ -117,7 +118,7 @@ namespace PVRA.Controllers
         [HttpPost]
         public ActionResult MaterialesPorProveedor(PeriodoModel periodo)
         {
-            report = new MaterialesPorProveedor(periodo);
+            //report = new MaterialesPorProveedor(periodo);
             return View("Plantilla");
         }
 
@@ -133,7 +134,7 @@ namespace PVRA.Controllers
         [HttpPost]
         public ActionResult MaterialesUtilizados(PeriodoModel periodo)
         {
-            report = new MaterialesUtilizados(periodo);
+            //report = new MaterialesUtilizados(periodo);
             return View("Plantilla");
         }
 
@@ -151,7 +152,7 @@ namespace PVRA.Controllers
         [HttpPost]
         public ActionResult TrabajadoresVentas(PeriodoModel periodo)
         {
-            report = new VentasPorTrabajador(periodo);
+            //report = new VentasPorTrabajador(periodo);
             return View("Plantilla");
         }
 	}

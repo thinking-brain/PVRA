@@ -1,7 +1,7 @@
 ﻿@using System.Web.UI.WebControls
-@using DevExpress.DashboardCommon.Native
+@*@using DevExpress.DashboardCommon.Native*@
 @using PVRA.Models
-@{
+@*@{
     Html.EnableClientValidation();
     Html.EnableUnobtrusiveJavaScript();
 
@@ -56,4 +56,4 @@
         grid.SetEditErrorText((string)ViewData["EditError"]);
     }
 }
-@grid.Bind(Model).GetHtml()
+@grid.Bind(Model).GetHtml()*@

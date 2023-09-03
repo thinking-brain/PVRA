@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using DevExpress.XtraPrinting.Export.Pdf;
+//using DevExpress.XtraPrinting.Export.Pdf;
 using PVRA.Models;
 
 namespace PVRA.Models.BaseTemporal
